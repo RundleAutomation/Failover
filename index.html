@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="Rau.png">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Failover Demontration</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row row-cols-3 mt-4 text-center">
+            <div class="col">
+                <h3>Page description</h3>
+            </div>
+            <div class="col">
+                <input class="form-control border border-dark border-3" name="page-description" id="page-description">
+            </div>
+            <div class="col text-start">
+                <p>The page description is the descriptive text associated with the page to better identify it in the
+                    report</p>
+            </div>
+            <div class="col">
+                <h3>Page ID</h3>
+            </div>
+            <div class="col">
+                <input class="form-control" name="page-id" id="page-id" readonly>
+            </div>
+            <div class="col text-start">
+                <p>The page ID is a unique code assigned to the page by failover</p>
+            </div>
+            <div class="col">
+                <h3>Page Status</h4>
+            </div>
+            <div class="col">
+                <div id="page-status" class="fs-4"></div>
+            </div>
+            <div class="col text-start">
+                <p>The page status indicates whether the page is prime, backup or unregistered</p>
+            </div>
+            <div class="col">
+                <button type="button" id="register" class="btn btn-primary w-100">Register</button>
+            </div>
+            <div class="col">
+                <span id="register-result"></span>
+            </div>
+            <div class="col text-start">
+                <p>The register command adds the page as a condidate for prime selection</p>
+            </div>
+            <div class="col">
+                <button type="button" id="unregister" class="btn btn-primary w-100">Unregister</button>
+            </div>
+            <div class="col">
+                <span id="unregister-result"></span>
+            </div>
+            <div class="col text-start">
+                <p>The unregister command removes the page from consideration for prime selection</p>
+            </div>
+            <div class="col">
+                <button type="button" id="goprime" class="btn btn-primary w-100">Go prime</button>
+            </div>
+            <div class="col">
+                <span id="goprime-result"></span>
+            </div>
+            <div class="col text-start">
+                <p>The go prime command forces the current page to be selected as prime</p>
+            </div>
+            <div class="col">
+                <button type="button" id="gobackup" class="btn btn-primary w-100">Go backup</button>
+            </div>
+            <div class="col">
+                <span id="gobackup-result"></span>
+            </div>
+            <div class="col text-start">
+                <p>The go backup command forces the current page to be unselected as prime</p>
+            </div>
+            <div class="col">
+                <button type="button" id="rogueprime" class="btn btn-primary w-100">Rogue prime</button>
+            </div>
+            <div class="col">
+                <span id="rogueprime-result"></span>
+            </div>
+            <div class="col text-start">
+                <p>The rogue prime command sets the current page to prime, an invalid condition that the failover logic
+                    must address.</p>
+            </div>
+            <div class="col">
+                <button type="button" id="report" class="btn btn-primary w-100">Failover report</button>
+            </div>
+            <div class="col">
+                <span id="report-result"></span>
+            </div>
+            <div class="col text-start">
+                <p>The report command lists the status of all pages managed by failover</p>
+            </div>
+        </div>
+    </div>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src='failover.js'></script>
+    <script src='test_failover.js'></script>
+</body>
+
+</html>
